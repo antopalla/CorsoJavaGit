@@ -6,12 +6,14 @@ public class Vendita {
     private float valoreVendita;
     private String descVendita;
     private LocalDateTime dataVendita;
+    private Utente utenteVendita;
 
-    public Vendita (float valoreVendita, String descVendita) {
+    public Vendita (float valoreVendita, String descVendita, Utente utenteVendita) {
         this.id = ++ID_Progressivo;
         this.valoreVendita = valoreVendita;
         this.descVendita = descVendita;
         this.dataVendita = LocalDateTime.now();
+        this.utenteVendita = utenteVendita;
     }
 
     public int getID () {
@@ -30,6 +32,10 @@ public class Vendita {
         return dataVendita;
     }
 
+    public Utente getUtenteVendita () {
+        return utenteVendita;
+    }
+
     public void setValoreVendita (float valoreVendita) {
         this.valoreVendita = valoreVendita;
     }
@@ -40,6 +46,6 @@ public class Vendita {
 
     @Override
     public String toString() {
-        return "ID: " + id + "\nValore vendita: " + valoreVendita + "\nDescrizione vendita: " + descVendita + "\nData vendita: " + dataVendita.toString() + "\n";
+        return "ID: " + id + "\nValore vendita: " + valoreVendita + "\nDescrizione vendita: " + descVendita + "\nData vendita: " + dataVendita.toString() + "\nUtente vendita: " + utenteVendita.toString() + "\n";
     }
 }

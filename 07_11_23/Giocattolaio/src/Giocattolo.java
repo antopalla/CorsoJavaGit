@@ -44,4 +44,14 @@ public class Giocattolo {
     public String toString () {
         return "ID: " + id + "\nNome: " + nome + "\nPrezzo: " + prezzo + "\nEtà consigliata: " + etaConsigliata + "\n";
     }
+
+    @Override
+    public boolean equals (Object o) {
+        if (o instanceof Giocattolo) {
+            if (id == ((Giocattolo)o).getID() && nome.equals(((Giocattolo)o).getNome())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
