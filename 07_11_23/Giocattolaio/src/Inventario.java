@@ -24,6 +24,15 @@ public class Inventario {
         }
     }
 
+    public Giocattolo getGiocattolo (int ID) {
+            for (int i=0;i<listaGiocattoli.size();i++) {
+                if (listaGiocattoli.get(i).getID() == ID) {
+                    return listaGiocattoli.get(i);
+                }
+            }
+            return null;
+    }
+
     public void rimuoviGiocattolo (Giocattolo g, Utente c) {
         if (c instanceof Admin) {
             if (listaGiocattoli.contains(g)) {
@@ -45,6 +54,7 @@ public class Inventario {
                 if (listaGiocattoli.get(i).getID() == ID) {
                     listaGiocattoli.remove(i);
                     System.out.println("Giocattolo rimosso con successo dall'inventario!\n");
+                    return;
                 }
             }
             System.out.println("Giocattolo non rimosso in quanto non presente!\n");
