@@ -4,13 +4,15 @@ import java.util.ArrayList;
 
 public class Main {
     private static List<Utente> listaUtenti = new ArrayList<>();
+    private static List<Vendita> registro = new ArrayList<>();
+    
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
 
-        Admin admin = new Admin("Antonio", "antonio.palladino@mail.it", "12345");
-        Cliente c1 = new Cliente("Giovanni", "giovanni.giorgio@mail.it");
-        Cliente c2 = new Cliente("Gastone", "gastonedeigastoni@mail.it");
+        Admin admin = new Admin("Amministratore", "admin@admin", "12345");
+        Cliente c1 = new Cliente("Cliente buono", "cliente.buono@mail.it");
+        Cliente c2 = new Cliente("Cliente cattivo", "cliente.cattivo@mail.it");
 
         listaUtenti.add(admin);
         listaUtenti.add(c1);
@@ -27,11 +29,6 @@ public class Main {
         inventario.aggiungiGiocattolo(g2, admin);
         inventario.aggiungiGiocattolo(g3, admin);
 
-        System.out.println(inventario);
-
-
-        List<Vendita> registro = new ArrayList<>();
-        
 
         int menuAccesso = -1;
         do {
