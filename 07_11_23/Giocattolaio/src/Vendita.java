@@ -1,17 +1,16 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Vendita {
     private static int ID_Progressivo = 0;
     private int id;
-    private float valoreVendita;
-    private String descVendita;
+    private Giocattolo giocattoloVenduto;
     private LocalDateTime dataVendita;
     private Utente utenteVendita;
 
-    public Vendita (float valoreVendita, String descVendita, Utente utenteVendita) {
+    public Vendita (Giocattolo giocattoloVenduto, Utente utenteVendita) {
         this.id = ++ID_Progressivo;
-        this.valoreVendita = valoreVendita;
-        this.descVendita = descVendita;
+        this.giocattoloVenduto = giocattoloVenduto;
         this.dataVendita = LocalDateTime.now();
         this.utenteVendita = utenteVendita;
     }
@@ -20,12 +19,8 @@ public class Vendita {
         return id;
     }
 
-    public float getValoreVendita () {
-        return valoreVendita;
-    }
-
-    public String getDescVendita () {
-        return descVendita;
+    public Giocattolo getGiocattoloVenduto () {
+        return giocattoloVenduto;
     }
 
     public LocalDateTime getDataVendita () {
@@ -36,16 +31,9 @@ public class Vendita {
         return utenteVendita;
     }
 
-    public void setValoreVendita (float valoreVendita) {
-        this.valoreVendita = valoreVendita;
-    }
-
-    public void setDescVendita (String descVendita) {
-        this.descVendita = descVendita;
-    }
-
     @Override
     public String toString() {
-        return "ID: " + id + "\nValore vendita: " + valoreVendita + "\nDescrizione vendita: " + descVendita + "\nData vendita: " + dataVendita.toString() + "\nUtente vendita: " + utenteVendita.toString() + "\n";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return "ID Vendita: " + id + "\nData vendita: " + dataVendita.format(formatter) + "\n\nUtente acquirente:\n" + utenteVendita.toString() + "\nGiocattolo venduto:\n" + giocattoloVenduto.toString() + "\n";
     }
 }

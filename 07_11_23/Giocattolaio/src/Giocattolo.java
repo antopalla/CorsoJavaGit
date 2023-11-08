@@ -42,7 +42,7 @@ public class Giocattolo {
 
     @Override 
     public String toString () {
-        return "ID: " + id + "\nNome: " + nome + "\nPrezzo: " + prezzo + "\nEtà consigliata: " + etaConsigliata + "\n";
+        return "ID Giocattolo: " + id + "\nNome: " + nome + "\nPrezzo: " + prezzo + "\nEtà consigliata: " + etaConsigliata + "\n";
     }
 
     @Override
